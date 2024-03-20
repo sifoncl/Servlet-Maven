@@ -16,13 +16,13 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        String email = req.getParameter("email");
-       char[] password = req.getParameter("passwoed").toCharArray();
+       char[] password = req.getParameter("password").toCharArray();
 
        if(Validators.isValidEmail(email)&&Validators.isValidPassword(password)){
 
 
-           req.setAttribute("name", "Tom");
-           req.setAttribute("age", 34);
+           req.setAttribute("email", email);
+           req.setAttribute("password", password);
 
            getServletContext().getRequestDispatcher("/UserInfo.jsp").forward(req, resp);
 

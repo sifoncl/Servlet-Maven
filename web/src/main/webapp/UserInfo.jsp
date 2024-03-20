@@ -5,7 +5,7 @@
     <title>JSP Application</title>
 </head>
 <body>
-<p>Name: ${name}</p>
-<p>Age: ${age}</p>
+<p>Name: ${email}</p>
+<p>Age: ${password}</p>
 </body>
 </html>
