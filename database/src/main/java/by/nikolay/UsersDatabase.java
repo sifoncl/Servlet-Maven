@@ -5,9 +5,9 @@ import java.util.Optional;
 
 public class UsersDatabase {
 
-    static final String DEFAULTP_PATH = "src/main/resources/UsersDatabase.json";
+    static final String DEFAULTP_PATH = "G:/Tom_Cat/UsersDatabase.json";
 
-    private HashMap<String, UserEntity> database;
+    private HashMap<String, UserEntity> database = new HashMap<>();
 
     private String path = DEFAULTP_PATH;
 
@@ -28,6 +28,10 @@ public class UsersDatabase {
         } else {
             this.database.put(user.getEmail(), user);
         }
+    }
+
+    public HashMap<String, UserEntity> getDatabase() {
+        return database;
     }
 
     public Optional<UserEntity> getUserByEmail(String email) {

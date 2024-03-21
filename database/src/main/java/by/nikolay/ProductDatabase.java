@@ -5,9 +5,9 @@ import java.util.Optional;
 
 public class ProductDatabase {
 
-    static final String DEFAULT_PATH = "src/main/resources/ProductDatabase.json";
+    static final String DEFAULT_PATH = "G:/Tom_Cat/ProductDatabase.json";
 
-    private HashMap<Integer, ProductEntity> database;
+    private HashMap<Integer, ProductEntity> database = new HashMap<>();
 
     private String path = DEFAULT_PATH;
 

@@ -13,16 +13,16 @@ public class UserEntity {
 
     }
 
-    String name;
-    int age;
+   private String name;
+    private int age;
 
-    String email;
+    private String email;
 
-    char[] password;
+    private char[] password;
 
-    ArrayList<ProductEntity> cart;
+    private ArrayList<ProductEntity> cart;
 
-    Roles role;
+    private Roles role;
 
 
     public String getName() {
@@ -73,7 +73,7 @@ public class UserEntity {
         this.role = role;
     }
 
-    public UserEntity(int id, String name, int age, String email, char[] password, ArrayList<ProductEntity> cart, Roles role) {
+    public UserEntity( String name, int age, String email, char[] password, ArrayList<ProductEntity> cart, Roles role) {
         this.name = name;
         this.age = age;
         this.email = email;

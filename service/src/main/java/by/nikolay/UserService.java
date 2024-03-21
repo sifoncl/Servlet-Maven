@@ -38,6 +38,7 @@ public class UserService {
         UsersDatabase usersDatabase = new UsersDatabase();
         try {
             usersDatabase = UserDbManager.loadDatabase(path);
+            System.out.println(LocalTime.now().toString() + " Загрузил бд юзеров");
         } catch (IOException e) {
             try {
                 UserDbManager.saveDatabase(usersDatabase);
@@ -48,6 +49,7 @@ public class UserService {
         return usersDatabase;
     }
 
-
-
+    public UsersDatabase getUsersDatabase() {
+        return usersDatabase;
+    }
 }
