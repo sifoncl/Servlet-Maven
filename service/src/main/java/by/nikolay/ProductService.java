@@ -14,8 +14,8 @@ public class ProductService {
     private ProductDatabase productDatabase = initProductDatabase(ProductDatabase.DEFAULT_PATH);
 
 
-    public Optional<ProductDao> getProductById(int id) {
-        return productDatabase.getProductById(id).map(x -> new ProductDao(x.getId(), x.getName(), x.getPrice()));
+    public Optional<ProductDao> getProductByName(String name) {
+        return productDatabase.getProductByName(name).map(x -> new ProductDao(x.getName(), x.getPrice()));
     }
 
 
@@ -28,7 +28,6 @@ public class ProductService {
         }
         return instance;
     }
-
 
     private static ProductDatabase initProductDatabase(String path) {
 
@@ -45,5 +44,7 @@ public class ProductService {
         return productDatabase;
     }
 
-
+    public ProductDatabase getProductDatabase() {
+        return productDatabase;
+    }
 }

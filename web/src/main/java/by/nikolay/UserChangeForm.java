@@ -7,11 +7,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.net.http.HttpRequest;
 import java.util.Arrays;
 
 @WebServlet("/UserChangeInfo")
-public class UserChageForm extends HttpServlet {
+public class UserChangeForm extends HttpServlet {
 
 
     @Override
@@ -19,6 +18,7 @@ public class UserChageForm extends HttpServlet {
 
         req.getParameterMap().forEach((x, y) -> System.out.println(x + Arrays.toString(y)));
         System.out.println(req.getParameter("oldEmail"));
+        String oldEmail = req.getParameter("oldEmail");
 
         resp.getWriter().write("<!DOCTYPE html>\n" +
                 "<head>\n" +
@@ -28,27 +28,20 @@ public class UserChageForm extends HttpServlet {
                 "<body>\n" +
                 "<div>\n" +
                 "    <form action=\"userChangeData\" method=\"get\">\n" +
-
                 "        Email: <input type=\"text\" name=\"email\">\n" +
-                "        <br>\n" +
-                "\n" +
+                "        <br>" +
                 "        Пароль старый: <input type=\"text\" name=\"passwordOld\">\n" +
-                "\n" +
                 "        Пароль: <input type=\"text\" name=\"password\">\n" +
-                "        <br>\n" +
+                "        <br>" +
                 "        Имя: <input type=\"text\" name=\"name\">\n" +
-                "        <br>\n" +
+                "        <br>" +
                 "        Возраст: <input type=\"text\" name=\"age\">\n" +
-                "<name =\"oldEmail\"=somew>\n" +
-                "        <br>\n" +
-                "\n" +
+                "<input type=\"hidden\" value=" + oldEmail + " name=\"oldEmail\">\n" +
+                "        <br>" +
                 "        <input type=\"submit\" value=\"Изменить параметры\">\n" +
-                "\n" +
                 "    </form>\n" +
                 "</div>\n" +
                 "</body>\n" +
                 "</html>");
-
     }
-
 }

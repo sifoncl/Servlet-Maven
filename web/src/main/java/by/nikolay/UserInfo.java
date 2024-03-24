@@ -32,7 +32,34 @@ public class UserInfo extends HttpServlet {
 
                 " <name=\"emailOLd\" value=" + user.getEmail() + " />" +
                 "<a  href=\"UserChangeInfo?oldEmail=" + user.getEmail() + "\">Изменить данные</a>" +
+                "<br>" +
+                "<a  href=\"ProductMenu?email=" + user.getEmail() + "\">Посмотреть Товары</a>" +
+                "<br>" +
+                "<a  href=\"cartInfo?email=" + user.getEmail() + "\">Посмотреть Корзину</a>" +
+                "</body>\n" +
+                "</html>");
+    }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        System.out.println(req.getParameter("email"));
+        String email = req.getParameter("email");
+        UserEntity user = UserService.getInstance().getUsersDatabase().getUserByEmail(email).get();
+
+        resp.getWriter().write("<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <title>JSP Application</title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<p>Email: " + user.getEmail() + "</p>\n" +
+                "<p>Имя: " + user.getName() + "</p>\n" +
+                "<p>Возраст:  " + user.getAge() + "</p>\n" +
+                "<p>Роль: " + user.getRole().toString() + "</p>\n" +
+                " <name=\"emailOLd\" value=" + user.getEmail() + " />" +
+                "<a  href=\"UserChangeInfo?oldEmail=" + user.getEmail() + "\">Изменить данные</a>" +
                 "</body>\n" +
                 "</html>");
     }

@@ -13,7 +13,7 @@ public class UserEntity {
 
     }
 
-   private String name;
+    private String name;
     private int age;
 
     private String email;
@@ -73,7 +73,7 @@ public class UserEntity {
         this.role = role;
     }
 
-    public UserEntity( String name, int age, String email, char[] password, ArrayList<ProductEntity> cart, Roles role) {
+    public UserEntity(String name, int age, String email, char[] password, ArrayList<ProductEntity> cart, Roles role) {
         this.name = name;
         this.age = age;
         this.email = email;
@@ -83,6 +83,10 @@ public class UserEntity {
     }
 
     public UserEntity() {
+    }
+
+    public void addToCart(ProductEntity product) {
+        this.cart.add(product);
     }
 
     @Override

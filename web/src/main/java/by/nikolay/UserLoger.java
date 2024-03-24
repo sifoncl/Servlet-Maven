@@ -20,12 +20,8 @@ public class UserLoger extends HttpServlet {
 
         if (UserService.getInstance().getUsersDatabase().getDatabase().containsKey(email)) {
             if (Arrays.equals(UserService.getInstance().getUsersDatabase().getDatabase().get(email).getPassword(), password)) {
-
-
                 getServletContext().getRequestDispatcher("/userinform").forward(req, resp);
-
             } else {
-
                 System.out.println("Юзер не верный пытаюсь редирект");
                 resp.sendRedirect(req.getContextPath() + "/UserNotFound.jsp");
             }

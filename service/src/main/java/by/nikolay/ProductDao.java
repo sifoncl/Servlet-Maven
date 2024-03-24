@@ -11,19 +11,11 @@ public class ProductDao {
     public ProductDao() {
     }
 
-    public ProductDao(int id, String name, int price) {
-        this.id = id;
+    public ProductDao(String name, int price) {
         this.name = name;
         this.price = price;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

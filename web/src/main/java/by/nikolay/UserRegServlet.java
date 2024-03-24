@@ -15,17 +15,12 @@ public class UserRegServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String newUserEmail = req.getParameter("email");
-
         char[] newUserPassword = req.getParameter("password").toCharArray();
-
         String newUserName = req.getParameter("name");
-
         int newUserAge = Integer.parseInt(req.getParameter("age"));
 
-
-        if (Validators.isValidEmail(newUserEmail) && Validators.isValidPassword(newUserPassword)&&
+        if (Validators.isValidEmail(newUserEmail) && Validators.isValidPassword(newUserPassword) &&
                 !(UserService.getInstance().getUsersDatabase().getDatabase().containsKey(newUserEmail))) {
             UserEntity newUser = new UserEntity(newUserName, newUserAge, newUserEmail,
                     newUserPassword, new ArrayList<ProductEntity>(), UserEntity.Roles.user);
@@ -34,10 +29,12 @@ public class UserRegServlet extends HttpServlet {
 
             UserDbManager.saveDatabase(UserService.getInstance().getUsersDatabase());
 
-           req.setAttribute("email",newUserEmail);
+            req.setAttribute("email", newUserEmail);
 
             getServletContext().getRequestDispatcher("/userinform").forward(req, resp);
-        }else {getServletContext().getRequestDispatcher("/NotAllowedRegistration.html").forward(req, resp);}
+        } else {
+            getServletContext().getRequestDispatcher("/NotAllowedRegistration.html").forward(req, resp);
+        }
 
     }
 

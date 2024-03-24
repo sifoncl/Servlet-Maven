@@ -4,16 +4,12 @@ import java.util.Objects;
 
 public class ProductEntity {
 
-    int id;
-    String name;
-    int price;
+    private String name;
+    private int price;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public ProductEntity(String name, int price) {
+        this.name = name;
+        this.price = price;
     }
 
     public String getName() {
@@ -32,10 +28,6 @@ public class ProductEntity {
         this.price = price;
     }
 
-    public ProductEntity(int id) {
-        this.id = id;
-    }
-
     public ProductEntity() {
     }
 
@@ -43,19 +35,19 @@ public class ProductEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ProductEntity that)) return false;
-        return id == that.id && price == that.price && Objects.equals(name, that.name);
+        return price == that.price && Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price);
+        return Objects.hash(name, price);
     }
+
 
     @Override
     public String toString() {
         return "ProductEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", price=" + price +
                 '}';
     }

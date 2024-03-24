@@ -7,7 +7,7 @@ public class ProductDatabase {
 
     static final String DEFAULT_PATH = "G:/Tom_Cat/ProductDatabase.json";
 
-    private HashMap<Integer, ProductEntity> database = new HashMap<>();
+    private HashMap<String, ProductEntity> database = new HashMap<>();
 
     private String path = DEFAULT_PATH;
 
@@ -23,10 +23,14 @@ public class ProductDatabase {
     }
 
     public void addProductToDatabase(ProductEntity product) {
-        this.database.put(product.getId(), product);
+        this.database.put(product.getName(), product);
     }
 
-    public Optional<ProductEntity> getProductById(int id) {
-        return Optional.ofNullable(this.database.get(id));
+    public Optional<ProductEntity> getProductByName(String name) {
+        return Optional.ofNullable(this.database.get(name));
+    }
+
+    public HashMap<String, ProductEntity> getDatabase() {
+        return database;
     }
 }

@@ -11,7 +11,6 @@ public class UserService {
     private UsersDatabase usersDatabase = initUserDatabase(UsersDatabase.DEFAULTP_PATH);
 
 
-
     public Optional<UserDao> getUserByEmail(String userEmail) {
         return usersDatabase.getUserByEmail(userEmail).map(x -> new UserDao(
                 x.getName(),
@@ -32,7 +31,6 @@ public class UserService {
         }
         return instance;
     }
-
 
     private static UsersDatabase initUserDatabase(String path) {
         UsersDatabase usersDatabase = new UsersDatabase();
